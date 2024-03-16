@@ -1,0 +1,19 @@
+.features {
+    padding: 50px 0 100px;
+}
+.features h1 {
+    text-align: center;
+    color: #888;
+    margin: 50px;
+    font-family: 'Dancing Script', cursive;
+
+}
+.features .feature {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+.features .feature img {
+    height: 270px;
+}

@@ -21,3 +21,9 @@ a {
     min-height: 100vh;
     position: relative;
 }
+.mainTitle {
+    text-align: center;
+    color: #888;
+    margin: 50px;
+    font-family: 'Dancing Script', cursive;
+}

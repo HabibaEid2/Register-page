@@ -1,8 +1,6 @@
 .products {
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-    gap: 20px;
+    display: flex;
     justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
-    margin: 50px auto;
 }

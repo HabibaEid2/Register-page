@@ -8,11 +8,13 @@ import SignIn from '../pages/authorization/SignIn';
 import Products from '../pages/products/Products';
 import Users from '../pages/users/Users';
 import './../constant/css/all.min.css'
+import Home from '../pages/home/Home';
 function App() {
   return(
     <div>
       <Header/>
       <Routes>
+        <Route path = "/home" element = {<Home/>}></Route>
         <Route path = "/register" element = {<Register/>}></Route>
         <Route path = "/sign-in" element = {<SignIn/>}></Route>
         <Route path = "/products" element = {<Products/>}></Route>
