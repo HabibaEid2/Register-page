@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {Form , Button , Container , Alert} from 'react-bootstrap';
 import axios from 'axios';
 import React from 'react';
 import './index.css'
+import Cookies from 'universal-cookie';
+import { token } from '../../context/Context';
 export default function SignIn() {
     let [email , setEmail] = useState("") ; 
     let [pass , setPass] = useState("") ; 
     let [err , setErr] = useState("") ; 
     let [valid , setValid] = useState(false) ; 
     let [state , setState] = useState(false) ; 
+    let cookie = new Cookies() ; 
+    let context = useContext(token) ; 
+
     async function signIn(e) {
         e.preventDefault() ; 
         setValid(true) ; 
@@ -17,12 +22,13 @@ export default function SignIn() {
                 await axios.post("http://127.0.0.1:8000/api/login" , {
                 password : pass , 
                 email : email , 
-            }).then((res) => {
+            })
+            .then((res) => {
                 setErr("") ; 
-                if (res.status === 200) {
-                    setState(true)
-                }
+                setState(true)
                 console.log(res)
+                cookie.set("token" , res.data.data.token) ; 
+                context.setValue(res.data.data.token) ; 
             })
             } 
             catch(err) {

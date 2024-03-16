@@ -1,8 +1,6 @@
 import './header.css'
 import { Container  , Navbar , Nav, Button} from 'react-bootstrap'
-import Register from './../../pages/Register'
 import React from 'react' ; 
-import { Link } from 'react-router-dom';
 export default function Header() {
     return(
         <header>
@@ -12,9 +10,8 @@ export default function Header() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">HOME</Nav.Link>
-                        <Nav.Link href="#about">ABOUT</Nav.Link>
-                        <Nav.Link href="#info">INFO</Nav.Link>
+                        <Nav.Link href="/products">PRODUCTS</Nav.Link>
+                        <Nav.Link href="/users">USERS</Nav.Link>
                     </Nav>
                     <Nav style={{display : "flex" , gap : '10px' , flexDirection: "row"}}>
                         <Nav.Link href="register">

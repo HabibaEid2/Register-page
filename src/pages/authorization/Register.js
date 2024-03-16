@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {Form , Button , Container ,Alert} from 'react-bootstrap';
 import axios from 'axios';
 import React from 'react';
 import './index.css'
+import Cookies from 'universal-cookie';
+import { token } from '../../context/Context';
 export default function Register() {
     let [name , setName] = useState("") ; 
     let [email , setEmail] = useState("") ; 
@@ -11,12 +13,12 @@ export default function Register() {
     let [errMess , setErrMess] = useState("") ; 
     let [valid , setValid] = useState(false) ; 
     let [state , setState] = useState(false) ; 
+    let cookie = new Cookies() ; 
+    let context = useContext(token) ; 
     async function register(e) {
         e.preventDefault() ; 
         setValid(true) ; 
-        console.log(name)
         if (pass.length >= 8 && pass === rePass && name.length !== 0) {
-            console.log(true) ; 
             try {
                 await axios.post("http://127.0.0.1:8000/api/register" , {
                 name : name , 
@@ -26,6 +28,8 @@ export default function Register() {
             }).then((res) => {
                 setErrMess("") ;
                 if (res.status === 200) setState(true) ; 
+                cookie.set("token" , res.data.data.token)
+                context.setValue(res.data.data.token) ; 
             })
             } 
             catch(err) {

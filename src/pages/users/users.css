@@ -1,0 +1,21 @@
+.users {
+    margin: 50px auto;
+}
+.users .row{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+.users .row .headEle {
+    background-color: rgb(49, 120, 16);
+    color: white;
+    font-weight: bold;
+}
+.users .row > div {
+    padding: 5px 10px;
+    border: solid 1px black;
+}
+.users .row i {
+    margin-left:10px ;
+    cursor: pointer;
+}
