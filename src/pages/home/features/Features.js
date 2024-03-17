@@ -5,7 +5,7 @@ import './features.css'
 export default function Features() {
     let featuresData = features.map((ele) => {
         return (
-            <Card style={{width: "18rem"}} >
+            <Card style={{width: "18rem"}} key={ele.id}>
                 <CardImg src= {ele.featureImg} alt="..."/>
                 <CardBody>
                     <CardTitle>{ele.featureTitle}</CardTitle>

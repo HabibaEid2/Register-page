@@ -41,33 +41,30 @@ export default function SignIn() {
     }
     return (
         <Container>
-            <div className='form'>
-                <Form style = {{padding : "30px 0"}} onSubmit={signIn}>
-                    {state ? <Alert variant={"success"}>the data submitted successfully</Alert> : ""}
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control 
-                        type="password" 
-                        placeholder="Password" 
-                        onChange={(e) => setPass(e.target.value)}/>
-                        <Form.Text >{valid && pass.length < 8 ? "password length must be at least 8 characters!" : ""}</Form.Text>
-                    </Form.Group>
+            <Form style = {{margin : "100px auto 20px"}} onSubmit={signIn}>
+                {state && <Alert variant={"success"}>the data submitted successfully</Alert>}
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control 
+                    type="password" 
+                    placeholder="Password" 
+                    onChange={(e) => setPass(e.target.value)}/>
+                    <Form.Text >{valid && pass.length < 8 ? "password length must be at least 8 characters!" : ""}</Form.Text>
+                </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control 
-                        type="email" 
-                        placeholder="Enter Email" 
-                        onChange={(e) => setEmail(e.target.value)}/>
-                        <Form.Text>{err}</Form.Text>
-                    </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control 
+                    type="email" 
+                    placeholder="Enter Email" 
+                    onChange={(e) => setEmail(e.target.value)}/>
+                    <Form.Text>{err}</Form.Text>
+                </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        sign in
-                    </Button>
-                </Form>
-                
-            </div>
+                <Button variant="primary" type="submit">
+                    sign in
+                </Button>
+            </Form>
         </Container>
     );
 }

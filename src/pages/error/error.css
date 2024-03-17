@@ -1,0 +1,15 @@
+
+.error .content {
+    color: rgb(46, 43, 43);
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 50px;
+
+}
+.error .title {
+    font-size: 90px;
+}
+.error .small_title {
+    color:#a3a0a0 ;
+}

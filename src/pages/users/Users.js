@@ -7,7 +7,6 @@ export default function Users() {
     let  [users , setUsers] = useState([]) ; 
     let [active , setActive] = useState(0)
     let context = useContext(token) ; 
-    console.log("contextValue ==> " + context.value)
     useEffect(() => {
         try {
             axios.get("http://127.0.0.1:8000/api/user/show" , {

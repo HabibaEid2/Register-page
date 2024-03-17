@@ -1,6 +1,27 @@
+.content {
+    padding: 50px 0 100px;
+}
 .products {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+.card-img {
+    height: 250px;
+    transition: .2s;
+}
+.card {
+    cursor: pointer;
+}
+.card-body {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.card:hover .card-img {
+    opacity: .7;
+}
+.card button {
+    align-self: flex-end;
+    width: fit-content;
 }

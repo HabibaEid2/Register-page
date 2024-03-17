@@ -1,3 +1,7 @@
 header {
     box-shadow: 0 1px 10px #777;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
