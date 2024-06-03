@@ -1,46 +1,30 @@
 import { useContext, useState } from 'react';
 import {Form , Button , Container ,Alert} from 'react-bootstrap';
-import axios from 'axios';
 import React from 'react';
 import './index.css'
 import Cookies from 'universal-cookie';
-import { token } from '../../context/Context';
+import { auth } from '../../context/Context';
 export default function Register() {
     let [name , setName] = useState("") ; 
     let [email , setEmail] = useState("") ; 
     let [pass , setPass] = useState("") ; 
     let [rePass , setRePass] = useState("") ; 
-    let [errMess , setErrMess] = useState("") ; 
     let [valid , setValid] = useState(false) ; 
     let [state , setState] = useState(false) ; 
     let cookie = new Cookies() ; 
-    let context = useContext(token) ; 
-    async function register(e) {
+    let context = useContext(auth) ; 
+    function register(e) {
         e.preventDefault() ; 
         setValid(true) ; 
         if (pass.length >= 8 && pass === rePass && name.length !== 0) {
-            try {
-                await axios.post("http://127.0.0.1:8000/api/register" , {
-                name : name , 
-                password : pass , 
-                password_confirmation : rePass , 
-                email : email , 
-            }).then((res) => {
-                setErrMess("") ;
-                if (res.status === 200) setState(true) ; 
-                cookie.set("token" , res.data.data.token)
-                context.setValue(res.data.data.token) ; 
-            })
-            } 
-            catch(err) {
-                if (err.response.status === 422) setErrMess("*the email has been token before!")
-                console.log(err)
-            }
+            cookie.set("email" , email) ; 
+            context.setValue(email)
+            setState(true) ;   
+        } 
         }
-    }
     return (
         <Container style={{paddingBottom : "50px"}}>
-            <Form style = {{margin : "100px auto 20px"}} onSubmit={register}>
+            <Form style = {{margin : "100px auto 20px"}}>
                 {state ? <Alert variant={"success"}>the data submitted successfully</Alert> : ""}
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label >User Name</Form.Label>
@@ -75,10 +59,9 @@ export default function Register() {
                     type="email" 
                     placeholder="Enter Email" 
                     onChange={(e) => setEmail(e.target.value)}/>
-                    <Form.Text>{valid ? errMess : ""}</Form.Text>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={register}>
                     Register
                 </Button>
             </Form>

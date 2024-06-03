@@ -26,7 +26,6 @@ export default function Products() {
             setProducts(result) ;  
         })
     } , [])
-    console.log(products)
     return (
         <div className="content">
             <h1 className="mainTitle">Our Homes</h1>
