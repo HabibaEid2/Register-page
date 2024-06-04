@@ -1,15 +1,13 @@
-import './header.css'
 import { Container  , Navbar , Nav, Button} from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useContext } from 'react' ; 
 import {auth } from '../../context/Context';
 import Cookies from 'universal-cookie';
+import './header.css'
 export default function Header() {
     let context = useContext(auth) ; 
     let cookie = new Cookies() ; 
     let go = useNavigate() ; 
-    console.log(context.value === 'undefined') ; 
-    console.log(context.value === undefined)
     function logout() {
         cookie.remove("email")
         context.setValue(undefined) ; 
@@ -28,7 +26,7 @@ export default function Header() {
         <header>
             <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand href="/">Logo</Navbar.Brand>
+                    <Navbar.Brand href="#">Logo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
