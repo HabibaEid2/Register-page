@@ -64,6 +64,7 @@ export default function Register() {
                 <Button variant="primary" type="submit" onClick={register}>
                     Register
                 </Button>
+                this is the new page
             </Form>
         </Container>
     );
