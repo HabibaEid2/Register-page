@@ -32,8 +32,8 @@ export default function Header() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="">Home</Nav.Link>
-                        <Nav.Link href={context.value === undefined ? "error" : "products"}>Products</Nav.Link>
+                        <Link to="/">Home</Link>
+                        <Link to={context.value === undefined ? "/error" : "/products"}>Products</Link>
                     </Nav>
                     {context.value === undefined ? register : logoutB}
                     </Navbar.Collapse>
